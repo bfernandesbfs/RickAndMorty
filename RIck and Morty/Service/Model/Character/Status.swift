@@ -6,7 +6,7 @@
 //  Copyright © 2019 bfs. All rights reserved.
 //
 
-public enum Status: String {
+public enum Status: String, Decodable {
     case alive = "Alive"
     case dead = "Dead"
     case unknown = "unknown"

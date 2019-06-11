@@ -8,14 +8,26 @@
 
 import Foundation
 
-public struct CharacterData {
+public struct CharacterData: Decodable {
     public let info: Info
     public let results: [Character]
+
+    public init() {
+        info = Info()
+        results = []
+    }
 }
 
-public struct Info {
+public struct Info: Decodable {
     public let count: Int
     public let pages: Int
     public let next: String
     public let prev: String
+
+    public init() {
+        count = Int()
+        pages = Int()
+        next = String()
+        prev = String()
+    }
 }

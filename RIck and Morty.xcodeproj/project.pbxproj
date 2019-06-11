@@ -12,6 +12,12 @@
 		1504C55122AD632E0032D0B0 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504C55022AD632E0032D0B0 /* Status.swift */; };
 		1504C55422AD634C0032D0B0 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504C55322AD634C0032D0B0 /* Gender.swift */; };
 		1504C55622AD63EC0032D0B0 /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504C55522AD63EC0032D0B0 /* CharacterData.swift */; };
+		1570BDDE22B056EC00618F6A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570BDDD22B056EC00618F6A /* Service.swift */; };
+		1570BDE022B0586300618F6A /* ServiceSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570BDDF22B0586300618F6A /* ServiceSubscription.swift */; };
+		1570BDE322B0593800618F6A /* URLSession+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570BDE222B0593800618F6A /* URLSession+Combine.swift */; };
+		1570BDE522B05B1700618F6A /* ServiceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570BDE422B05B1700618F6A /* ServiceRouter.swift */; };
+		1570BDE822B0636800618F6A /* characters.json in Resources */ = {isa = PBXBuildFile; fileRef = 1570BDE722B0636800618F6A /* characters.json */; };
+		1570BDEA22B063AA00618F6A /* LoadMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1570BDE922B063AA00618F6A /* LoadMock.swift */; };
 		157FA19522AC950B000248A7 /* SeachView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157FA19422AC950B000248A7 /* SeachView.swift */; };
 		157FA19822ACACA3000248A7 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157FA19722ACACA3000248A7 /* LoadingView.swift */; };
 		157FA19A22ACAD98000248A7 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157FA19922ACAD98000248A7 /* CharacterView.swift */; };
@@ -30,6 +36,12 @@
 		1504C55022AD632E0032D0B0 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		1504C55322AD634C0032D0B0 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		1504C55522AD63EC0032D0B0 /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
+		1570BDDD22B056EC00618F6A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1570BDDF22B0586300618F6A /* ServiceSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSubscription.swift; sourceTree = "<group>"; };
+		1570BDE222B0593800618F6A /* URLSession+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Combine.swift"; sourceTree = "<group>"; };
+		1570BDE422B05B1700618F6A /* ServiceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRouter.swift; sourceTree = "<group>"; };
+		1570BDE722B0636800618F6A /* characters.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = characters.json; sourceTree = "<group>"; };
+		1570BDE922B063AA00618F6A /* LoadMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMock.swift; sourceTree = "<group>"; };
 		157FA19422AC950B000248A7 /* SeachView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeachView.swift; sourceTree = "<group>"; };
 		157FA19722ACACA3000248A7 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		157FA19922ACAD98000248A7 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
@@ -75,6 +87,23 @@
 			path = Character;
 			sourceTree = "<group>";
 		};
+		1570BDE122B0592400618F6A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1570BDE222B0593800618F6A /* URLSession+Combine.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1570BDE622B0635200618F6A /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				1570BDE722B0636800618F6A /* characters.json */,
+				1570BDE922B063AA00618F6A /* LoadMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		157FA19322AC9501000248A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +116,11 @@
 		157FA19622AC970C000248A7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1570BDE622B0635200618F6A /* Mock */,
+				1570BDE122B0592400618F6A /* Extension */,
+				1570BDDD22B056EC00618F6A /* Service.swift */,
+				1570BDE422B05B1700618F6A /* ServiceRouter.swift */,
+				1570BDDF22B0586300618F6A /* ServiceSubscription.swift */,
 				1504C54A22AD60380032D0B0 /* Model */,
 			);
 			path = Service;
@@ -219,6 +253,7 @@
 				15CED64222AC098A002C418C /* LaunchScreen.storyboard in Resources */,
 				15CED63F22AC098A002C418C /* Preview Assets.xcassets in Resources */,
 				15CED63C22AC098A002C418C /* Assets.xcassets in Resources */,
+				1570BDE822B0636800618F6A /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1570BDE522B05B1700618F6A /* ServiceRouter.swift in Sources */,
 				157FA19522AC950B000248A7 /* SeachView.swift in Sources */,
+				1570BDE322B0593800618F6A /* URLSession+Combine.swift in Sources */,
+				1570BDEA22B063AA00618F6A /* LoadMock.swift in Sources */,
+				1570BDDE22B056EC00618F6A /* Service.swift in Sources */,
 				1504C55422AD634C0032D0B0 /* Gender.swift in Sources */,
 				1504C55122AD632E0032D0B0 /* Status.swift in Sources */,
 				15CED63622AC0987002C418C /* AppDelegate.swift in Sources */,
@@ -238,6 +277,7 @@
 				15CED63822AC0987002C418C /* SceneDelegate.swift in Sources */,
 				1504C54F22AD63150032D0B0 /* Location.swift in Sources */,
 				15CED65122AC20E5002C418C /* CardCell.swift in Sources */,
+				1570BDE022B0586300618F6A /* ServiceSubscription.swift in Sources */,
 				157FA19822ACACA3000248A7 /* LoadingView.swift in Sources */,
 				157FA19A22ACAD98000248A7 /* CharacterView.swift in Sources */,
 				1504C54C22AD60780032D0B0 /* Character.swift in Sources */,

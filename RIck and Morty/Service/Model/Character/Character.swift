@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct Character: Identifiable {
+public struct Character: Identifiable, Decodable {
 
     public let id: Int
     public let name: String

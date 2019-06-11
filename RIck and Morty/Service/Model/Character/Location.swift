@@ -6,7 +6,7 @@
 //  Copyright © 2019 bfs. All rights reserved.
 //
 
-public struct Location {
+public struct Location: Decodable {
     public let name: String
     public let url: String
 }

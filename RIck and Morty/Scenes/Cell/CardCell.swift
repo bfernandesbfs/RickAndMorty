@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct CardCell : View {
+
+    var character: Character
+
     var body: some View {
 
         let gradient = LinearGradient(gradient: Gradient(colors: [.clear, .black]),
@@ -23,10 +26,10 @@ struct CardCell : View {
                 .overlay(Rectangle().fill(gradient))
 
             VStack(alignment: .leading) {
-                Text("Rick Rick Rick Rick Rick Rick Rick Rick RickRE d")
+                Text(character.name)
                     .color(.white)
                     .font(.title)
-                Text("Status")
+                Text(character.status.rawValue)
                     .color(.white)
                     .font(.caption)
             }
@@ -39,9 +42,10 @@ struct CardCell : View {
 
 #if DEBUG
 struct CardCell_Previews : PreviewProvider {
+
     static var previews: some View {
         Group {
-            CardCell()
+            CardCell(character: Service.mock[0])
         }
         .previewLayout(.fixed(width: 375, height: 200))
     }

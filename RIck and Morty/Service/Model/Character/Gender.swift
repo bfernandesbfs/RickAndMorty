@@ -6,7 +6,7 @@
 //  Copyright © 2019 bfs. All rights reserved.
 //
 
-public enum Gender: String {
+public enum Gender: String, Decodable {
     case female = "Female"
     case male = "Male"
     case genderless = "Genderless"

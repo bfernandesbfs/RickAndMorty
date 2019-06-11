@@ -9,27 +9,24 @@
 import SwiftUI
 
 struct MainView : View {
-
-    @State var isLoading: Bool = false
-
-    var title: Text = Text("Rick am Morty")
+    @ObjectBinding var service: Service
 
     var body: some View {
 
         NavigationView {
             
             VStack {
-                if self.isLoading {
+                if service.isLoading {
                     LoadingView()
                         .edgesIgnoringSafeArea(.top)
                 } else {
                     List {
                         SeachView(text: .constant(""))
 
-                        ForEach(0 ..< 5) { _ in
+                        ForEach(service.characterData.results) { character in
 
                             NavigationButton(destination: CharacterView()) {
-                                CardCell()
+                                CardCell(character: character)
                                     .padding([.top, .bottom], 8)
                                     .shadow(radius: 10)
                             }
@@ -37,23 +34,20 @@ struct MainView : View {
                     }
                 }
             }
-            .navigationBarTitle(title, displayMode: .large)
+            .navigationBarTitle(Text("Rick am Morty"), displayMode: .large)
         }
         .onAppear(perform: appear)
     }
 
     func appear() {
-
-//        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-//            self.isLoading = false
-//        }
+        service.characters()
     }
 }
 
 #if DEBUG
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(service: Service())
     }
 }
 #endif
