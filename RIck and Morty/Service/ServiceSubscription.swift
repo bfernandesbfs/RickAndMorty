@@ -14,7 +14,7 @@ public final class ServiceSubscription: Subscription {
     private let cancellable: Cancellable
 
     public init(_ cancel: @escaping () -> Void) {
-        self.cancellable = ServiceSubscription(cancel)
+        cancellable = AnyCancellable(cancel)
     }
 
     public func request(_ demand: Subscribers.Demand) {}

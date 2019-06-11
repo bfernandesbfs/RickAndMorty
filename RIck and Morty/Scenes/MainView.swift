@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MainView : View {
-    @ObjectBinding var service: Service
+    @ObjectBinding var service = Service()
 
     var body: some View {
 
@@ -23,7 +23,7 @@ struct MainView : View {
                     List {
                         SeachView(text: .constant(""))
 
-                        ForEach(service.characterData.results) { character in
+                        ForEach(self.service.characterData.results) { character in
 
                             NavigationButton(destination: CharacterView()) {
                                 CardCell(character: character)
@@ -40,14 +40,14 @@ struct MainView : View {
     }
 
     func appear() {
-        service.characters()
+        self.service.characters()
     }
 }
 
 #if DEBUG
 struct MainView_Previews : PreviewProvider {
     static var previews: some View {
-        MainView(service: Service())
+        MainView(service: Service(isMock: true))
     }
 }
 #endif

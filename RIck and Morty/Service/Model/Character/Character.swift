@@ -21,5 +21,5 @@ public struct Character: Identifiable, Decodable {
     public let image: String
     public let episode: [String]
     public let url: String
-    public let created: Date
+    public let created: String
 }
