@@ -19,10 +19,15 @@ public final class ImageViewModel: BindableObject {
     
     public let didChange: PassthroughSubject<ImageViewModel, Never>
     private let router: ApiRouter
+    private var task: Cancellable?
     
     public init(url: String) {
         didChange = PassthroughSubject<ImageViewModel, Never>()
         router = ApiRouter.image(url)
+    }
+    
+    deinit {
+        task?.cancel()
     }
     
     // MARK: Public Methods
@@ -34,15 +39,16 @@ public final class ImageViewModel: BindableObject {
             return
         }
         
-        URLSession.shared.dataTask(with: router.request) { (data, _, error) in
-            DispatchQueue.main.async {
-                if let data = data, let image = UIImage(data: data) {
-                    self.image = image
+        task = URLSession.shared.request(router)
+            .map { UIImage(data: $0.data) }
+            .receive(on: RunLoop.main)
+            .sink { image in
+                self.image = image
+                
+                if let image = image  {
                     ImageCache.shared.store(image: image, for: self.router.path)
                 }
             }
-        }
-        .resume()
     }
 }
 
