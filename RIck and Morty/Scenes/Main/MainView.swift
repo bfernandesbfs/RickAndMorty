@@ -9,21 +9,21 @@
 import SwiftUI
 
 struct MainView : View {
-    @ObjectBinding var service = Service()
+    @ObjectBinding var viewModel: MainViewModel = MainViewModel()
 
     var body: some View {
 
         NavigationView {
             
             VStack {
-                if service.isLoading {
+                if viewModel.state == .loading {
                     LoadingView()
                         .edgesIgnoringSafeArea(.top)
                 } else {
                     List {
                         SeachView(text: .constant(""))
 
-                        ForEach(self.service.characterData.results) { character in
+                        ForEach(self.viewModel.characters) { character in
 
                             NavigationButton(destination: CharacterView()) {
                                 CardCell(character: character)
@@ -40,14 +40,14 @@ struct MainView : View {
     }
 
     func appear() {
-        self.service.characters()
+        self.viewModel.didAppear.send(())
     }
 }
 
-#if DEBUG
-struct MainView_Previews : PreviewProvider {
-    static var previews: some View {
-        MainView(service: Service(isMock: true))
-    }
-}
-#endif
+//#if DEBUG
+//struct MainView_Previews : PreviewProvider {
+//    static var previews: some View {
+//        MainView(service: Service(isMock: true))
+//    }
+//}
+//#endif

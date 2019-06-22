@@ -19,9 +19,8 @@ struct CardCell : View {
                                       endPoint: UnitPoint(x: 0.0, y: 1.2))
 
         return ZStack(alignment: .bottomLeading) {
-            Image("1")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            
+            ImageView(viewModel: ImageViewModel(url: character.image))
                 .frame(height: 200)
                 .overlay(Rectangle().fill(gradient))
 
@@ -40,14 +39,14 @@ struct CardCell : View {
     }
 }
 
-#if DEBUG
-struct CardCell_Previews : PreviewProvider {
-
-    static var previews: some View {
-        Group {
-            CardCell(character: Service.mock[0])
-        }
-        .previewLayout(.fixed(width: 375, height: 200))
-    }
-}
-#endif
+//#if DEBUG
+//struct CardCell_Previews : PreviewProvider {
+//
+//    static var previews: some View {
+//        Group {
+//            CardCell(character: Service.mock[0])
+//        }
+//        .previewLayout(.fixed(width: 375, height: 200))
+//    }
+//}
+//#endif
